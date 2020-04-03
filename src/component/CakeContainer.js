@@ -6,10 +6,10 @@ function CakeContainer(props){
 
     return(
         <div>
+            <p>Using map methods</p>
             <h2>No of Cake : {props.noOfCakes}</h2>
             <button onClick={props.buyCake}>Buy Cake</button>
         </div>
-
     )
 }
 
