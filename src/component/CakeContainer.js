@@ -1,26 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { buyCake } from '../redux/cake/cakeAction';
 import { connect } from 'react-redux';
 
 function CakeContainer(props){
 
+    const [number, setNumber] = useState(1);
+
     return(
         <div>
-            <p>Using map methods</p>
-            <h2>No of Cake : {props.noOfCakes}</h2>
-            <button onClick={props.buyCake}>Buy Cake</button>
+            <p>No of Cake : {props.noOfCakes}</p>
+            <input type="text" value={number} onChange={(e) => setNumber(e.target.value)}/>
+            <button onClick={() => { props.buyCake(number)}}>Buy Cake</button>
         </div>
     )
 }
 
 const mapStateToProps = state => {
     return {
-        noOfCakes : state.noOfCakes
+        noOfCakes : state.cake.noOfCakes
     }
 };
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
     return{
-        buyCake: () => dispatch(buyCake())
+        buyCake: (number) => dispatch(buyCake(number))
     }
 };
 
