@@ -8,7 +8,7 @@ function CakeContainer(props){
 
     return(
         <div>
-            <p>No of Cake : {props.noOfCakes}</p>
+            <p><b>No of Cake : {props.noOfCakes}</b></p>
             <input type="text" value={number} onChange={(e) => setNumber(e.target.value)}/>
             <button onClick={() => { props.buyCake(number)}}>Buy Cake</button>
         </div>
